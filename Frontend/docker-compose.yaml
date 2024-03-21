@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+      frontend:
+        build: /root/DockerImage_studentapp_threetier/Frontend
+        container_name : frontend
+        ports : 
+          - 80:80
+        network_mode: bridge
+      backend:
+        build: /root/DockerImage_studentapp_threetier/Backend
+        container_name : backend
+        ports : 
+          - 8080:8080
+        depends_on :
+          - frontend
+        network_mode: bridge
+    
